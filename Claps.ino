@@ -1,22 +1,4 @@
-class TimerSimple{
-  private:
-    bool IsOn=false;//true если еще работает, false если выкл или закончился  
-    unsigned long ringTime=0;  
-  public:
-    void Start(unsigned long duration){
-      if(duration>0){
-        this->ringTime=millis()+duration;
-        IsOn=true;
-      }
-    }
-    bool Check(){      
-      if(IsOn){
-        IsOn=!((this->ringTime <= millis())?true:false);
-      }
-      return IsOn;      
-    }
-};
-//----------------
+#include "ClapsCounter.h"
 
 byte pinAudioD=2;
 byte pinLowLight=3;
@@ -35,7 +17,7 @@ TimerSimple Timer;
 void setup() {
   Serial.begin(9600);
   
-  pinMode(pinAudioD,INPUT);  
+  pinMode(pinAudioD,INPUT);
   pinMode(pinLowLight,OUTPUT);
   pinMode(pinHightLight,OUTPUT);
   
@@ -76,7 +58,7 @@ void loop() {
         }else if(claps==3){
           onHightLight=!onHightLight;
           digitalWrite(pinHightLight,onHightLight);
-        }         
+        }
         Timer.Start(500);
         while(Timer.Check());      Serial.print(onLowLight);Serial.print(" ");Serial.println(onHightLight);   
       }

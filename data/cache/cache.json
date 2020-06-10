@@ -1,0 +1,55 @@
+{
+  "files" : [ {
+    "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.gz",
+    "localPath" : "D:\\PROgramming\\Arduino\\Claps\\data\\cache\\downloads.arduino.cc\\libraries\\library_index.json.gz",
+    "eTag" : "9d60ede336a3d200919b57f21de85f0e",
+    "md5" : "MD5:9d60ede336a3d200919b57f21de85f0e",
+    "createdAt" : "2020-06-10T16:27:53.057",
+    "cacheControl" : {
+      "maxAge" : 14400,
+      "mustRevalidate" : false,
+      "noCache" : false,
+      "noStore" : false
+    },
+    "expires" : "2020-06-10T20:27:53.057"
+  }, {
+    "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json.sig",
+    "localPath" : "D:\\PROgramming\\Arduino\\Claps\\data\\cache\\downloads.arduino.cc\\packages\\package_index.json.sig",
+    "eTag" : "f34a56c21835d385feb605fdeb3745de",
+    "md5" : "MD5:f34a56c21835d385feb605fdeb3745de",
+    "createdAt" : "2020-06-10T16:27:52.068",
+    "cacheControl" : {
+      "maxAge" : 3600,
+      "mustRevalidate" : false,
+      "noCache" : false,
+      "noStore" : false
+    },
+    "expires" : "2020-06-10T17:27:52.068"
+  }, {
+    "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.sig",
+    "localPath" : "D:\\PROgramming\\Arduino\\Claps\\data\\cache\\downloads.arduino.cc\\libraries\\library_index.json.sig",
+    "eTag" : "40a2a997d58b1bc0aa9b0af742e20f9d",
+    "md5" : "MD5:40a2a997d58b1bc0aa9b0af742e20f9d",
+    "createdAt" : "2020-06-10T16:27:53.519",
+    "cacheControl" : {
+      "maxAge" : 14400,
+      "mustRevalidate" : false,
+      "noCache" : false,
+      "noStore" : false
+    },
+    "expires" : "2020-06-10T20:27:53.519"
+  }, {
+    "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json",
+    "localPath" : "D:\\PROgramming\\Arduino\\Claps\\data\\cache\\downloads.arduino.cc\\packages\\package_index.json",
+    "eTag" : "1239f6b728d31a640708170177e62db2",
+    "md5" : "MD5:1239f6b728d31a640708170177e62db2",
+    "createdAt" : "2020-06-10T16:27:51.79",
+    "cacheControl" : {
+      "maxAge" : 3600,
+      "mustRevalidate" : false,
+      "noCache" : false,
+      "noStore" : false
+    },
+    "expires" : "2020-06-10T17:27:51.790"
+  } ]
+}
