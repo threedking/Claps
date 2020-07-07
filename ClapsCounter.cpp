@@ -24,7 +24,7 @@ ClapsCounter::ClapsCounter(uint8_t new_pinAudioD){
     pinMode(this->pinAudioD,INPUT);
   }else{
     this->state=CounterState::ERR;
-    Serial.println("Audio pin set wrong");
+    //Serial.println("Audio pin set wrong"); 
   }
 }
 void ClapsCounter::Update(){
@@ -73,9 +73,9 @@ void ClapsCounter::Update(){
 uint8_t ClapsCounter::GetClaps(){//Возвращает значение, если подсчет окончен. Иначе 0
   return this->state==CounterState::OFF?this->claps:0;
 }
-void ClapsCounter::ResetClaps(){//Сбрасывает последний подсчет
+void ClapsCounter::ResetClaps(){//Сбрасывает последний подсчет в 0
   if(this->state==CounterState::OFF){
-    this->claps=0;
+    this->claps=0;    
   }
 }
 //------------------------
