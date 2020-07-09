@@ -19,7 +19,7 @@ bool TimerSimple::Check(){
 //------------------------
 //------------------------
 ClapsCounter::ClapsCounter(uint8_t new_pinAudioD){
-  if( (new_pinAudioD>=0) && (new_pinAudioD<=13) ){
+  if(new_pinAudioD<=13){
     this->pinAudioD=new_pinAudioD;
     pinMode(this->pinAudioD,INPUT);
   }else{
@@ -46,8 +46,9 @@ void ClapsCounter::Update(){
       if(this->timer.Check()){
         if(digitalRead(this->pinAudioD)){//Тишина нарушена
           this->state=CounterState::OFF;//Прекратить подсчет
-          this->timer.Stop();
-          //this->claps=0;
+          this->timer.Start(this->timeconsts.END);
+          //this->claps=0; //Или обнулить, или анонсировать зафиксированные хлопки
+          Announce();
         }
       }else{//Время вышло, тишина не нарушена
         this->state=CounterState::LISTEN;
@@ -64,6 +65,7 @@ void ClapsCounter::Update(){
         }else{//Время вышло, хлопков не было
           this->state=CounterState::OFF;
           this->timer.Start(this->timeconsts.END);
+          Announce();
         }
       break;
       default:

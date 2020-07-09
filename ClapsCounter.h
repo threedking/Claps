@@ -71,6 +71,7 @@ class ClapsCounter{
     void Update();
     uint8_t GetClaps();//Возвращает значение, если подсчет окончен. Иначе 0
     void ResetClaps();//Сбрасывает последний подсчет в 0
+    virtual void Announce(){}; // Вызывается в Update. При наследовании с интерфейсом издателя, переопределить. 
 };
 //----------------
 #endif

@@ -1,7 +1,7 @@
 #include "Worker.h"
 //------------------------
 WorkerSwitch::WorkerSwitch(uint8_t new_pinWork){
-  if( (new_pinWork>=0) && (new_pinWork<=13) ){
+  if(new_pinWork<=13){
     this->pinWork=new_pinWork;
     pinMode(this->pinWork,INPUT);
   }else{
@@ -9,8 +9,10 @@ WorkerSwitch::WorkerSwitch(uint8_t new_pinWork){
   }  
 }
 //------------------------    
-void WorkerSwitch::Work(){//Переключает IsOn
-  this->IsOn=!this->IsOn;
+void WorkerSwitch::Work(){//Переключает IsOn, если переключения доступны + применяет
+  if(!this->IsRegular){
+    this->IsOn=!this->IsOn;
+  }
   digitalWrite(this->pinWork,!this->IsRegular?this->IsOn:this->RegularIsOn);
 }
 //------------------------
