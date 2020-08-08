@@ -6,9 +6,11 @@ void TimerSimple::Start(unsigned long duration){
     IsOn=true;
   }
 }
+//------------------------
 void TimerSimple::Stop(){
   IsOn=false;
 }
+//------------------------
 bool TimerSimple::Check(){
   if(IsOn){
     IsOn=!((this->ringTime <= millis())?true:false);
@@ -27,6 +29,7 @@ ClapsCounter::ClapsCounter(uint8_t new_pinAudioD){
     //Serial.println("Audio pin set wrong"); 
   }
 }
+//------------------------
 void ClapsCounter::Update(){
   switch(this->state){
     case CounterState::OFF:       //Счет не начат
@@ -70,14 +73,22 @@ void ClapsCounter::Update(){
       break;
       default:
       break;
-    }
   }
+}
+//------------------------
 uint8_t ClapsCounter::GetClaps(){//Возвращает значение, если подсчет окончен. Иначе 0
   return this->state==CounterState::OFF?this->claps:0;
 }
+//------------------------
 void ClapsCounter::ResetClaps(){//Сбрасывает последний подсчет в 0
   if(this->state==CounterState::OFF){
     this->claps=0;    
   }
+}
+//------------------------
+void ClapsCounter::HardReset(){//Сбрасывает и подсчет, и состяние
+  this->timer.Stop();
+  this->state=CounterState::OFF;
+  this->claps=0;
 }
 //------------------------

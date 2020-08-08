@@ -13,7 +13,11 @@ void WorkerSwitch::Work(){//Переключает IsOn, если переклю
   if(!this->IsRegular){
     this->IsOn=!this->IsOn;
   }
-  digitalWrite(this->pinWork,!this->IsRegular?this->IsOn:this->RegularIsOn);
+  this->Apply();
+}
+//------------------------
+void WorkerSwitch::Apply(){
+  digitalWrite(this->pinWork,!this->IsRegular?this->IsOn:this->RegularIsOn);  
 }
 //------------------------
 bool WorkerSwitch::GetIsOn(){
@@ -22,9 +26,11 @@ bool WorkerSwitch::GetIsOn(){
 //------------------------
 void WorkerSwitch::SetRegularIsOn(bool newRegularIsOn){
   this->RegularIsOn=newRegularIsOn;
+  this->Apply();
 }
 //------------------------
 bool WorkerSwitch::SetIsRegular(bool newIsRegular){
   this->IsRegular=newIsRegular;
+  this->Apply();
 }
 //------------------------    

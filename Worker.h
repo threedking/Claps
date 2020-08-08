@@ -15,7 +15,7 @@ class iWorker{
 class WorkerSwitch: public iWorker{
   private:
     bool IsOn=false;//Если переключения доступны, то это текущее состояние
-    bool RegularIsOn=false;//Если переключения НЕ доступны, то это текущее состояние
+    bool RegularIsOn=true;//Если переключения НЕ доступны, то это текущее состояние(без хлопков выключается вручную)
     bool IsRegular=false;//Недоступны ли переключения    
     
     uint8_t pinWork=255;//255 - неправильно или не задан
@@ -24,6 +24,7 @@ class WorkerSwitch: public iWorker{
     virtual ~WorkerSwitch(){};
     
     void Work() override;//Переключает IsOn, если переключения доступны + применяет
+    void Apply();
     
     bool GetIsOn();
     void SetRegularIsOn(bool newRegularIsOn);

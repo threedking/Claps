@@ -2,54 +2,54 @@
   "files" : [ {
     "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.gz",
     "localPath" : "D:\\PROgramming\\Arduino\\Claps\\data\\cache\\downloads.arduino.cc\\libraries\\library_index.json.gz",
-    "eTag" : "7f25dbc0dcfe4a1b8e8239ab79e8ef49",
-    "md5" : "MD5:7f25dbc0dcfe4a1b8e8239ab79e8ef49",
-    "createdAt" : "2020-07-10T02:18:34.222",
+    "eTag" : "4dbc982f2e91186abc44a53f12a88cad",
+    "md5" : "MD5:4dbc982f2e91186abc44a53f12a88cad",
+    "createdAt" : "2020-08-07T16:54:59.281",
     "cacheControl" : {
       "maxAge" : 14400,
       "mustRevalidate" : false,
-      "noStore" : false,
-      "noCache" : false
+      "noCache" : false,
+      "noStore" : false
     },
-    "expires" : "2020-07-10T06:18:34.222"
+    "expires" : "2020-08-07T20:54:59.281"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.sig",
     "localPath" : "D:\\PROgramming\\Arduino\\Claps\\data\\cache\\downloads.arduino.cc\\libraries\\library_index.json.sig",
-    "eTag" : "6f639e4fdd608a6e53e6c15907d45e5f",
-    "md5" : "MD5:6f639e4fdd608a6e53e6c15907d45e5f",
-    "createdAt" : "2020-07-10T02:18:35.607",
+    "eTag" : "70b33c1dca911086a7abce9f55b435bf",
+    "md5" : "MD5:70b33c1dca911086a7abce9f55b435bf",
+    "createdAt" : "2020-08-07T16:54:59.794",
     "cacheControl" : {
       "maxAge" : 14400,
       "mustRevalidate" : false,
-      "noStore" : false,
-      "noCache" : false
+      "noCache" : false,
+      "noStore" : false
     },
-    "expires" : "2020-07-10T06:18:35.607"
+    "expires" : "2020-08-07T20:54:59.794"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json.sig",
     "localPath" : "D:\\PROgramming\\Arduino\\Claps\\data\\cache\\downloads.arduino.cc\\packages\\package_index.json.sig",
     "eTag" : "1ba229e6b8a1e70ce4a24a924c2a5e35",
     "md5" : "MD5:1ba229e6b8a1e70ce4a24a924c2a5e35",
-    "createdAt" : "2020-07-07T10:50:42.705",
+    "createdAt" : "2020-07-16T12:31:22.957",
     "cacheControl" : {
       "maxAge" : 3600,
       "mustRevalidate" : false,
-      "noStore" : false,
-      "noCache" : false
+      "noCache" : false,
+      "noStore" : false
     },
-    "expires" : "2020-07-07T11:50:42.705"
+    "expires" : "2020-07-16T13:31:22.957"
   }, {
     "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json",
     "localPath" : "D:\\PROgramming\\Arduino\\Claps\\data\\cache\\downloads.arduino.cc\\packages\\package_index.json",
     "eTag" : "84d1be83a560bbbb4866937d094bba61",
     "md5" : "MD5:84d1be83a560bbbb4866937d094bba61",
-    "createdAt" : "2020-07-07T10:50:42.414",
+    "createdAt" : "2020-07-16T12:31:22.676",
     "cacheControl" : {
       "maxAge" : 3600,
       "mustRevalidate" : false,
-      "noStore" : false,
-      "noCache" : false
+      "noCache" : false,
+      "noStore" : false
     },
-    "expires" : "2020-07-07T11:50:42.414"
+    "expires" : "2020-07-16T13:31:22.676"
   } ]
 }

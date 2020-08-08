@@ -1,5 +1,7 @@
 #include "WorkerObserveClaps.h"
 //------------------------
+ClapsCounterSubj::ClapsCounterSubj(uint8_t new_pinAudioD):ClapsCounter(new_pinAudioD){}
+//------------------------
 void ClapsCounterSubj::Attach(IObserver *observer){
   list_observer_.push_back(observer);
 }
@@ -37,6 +39,6 @@ void WorkerSwitchObs::Update(const int &eventCode){
     }
 //------------------------
 void WorkerSwitchObs::RemoveMeFromTheList() {
-      ClapsCounterSubj_.Detach(this);
+      this->ClapsCounterSubj_.Detach(this);
     }
 //------------------------

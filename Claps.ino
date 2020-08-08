@@ -1,67 +1,33 @@
-#include "ClapsCounter.h"
+#include "WorkerObserveClaps.h"
 
-byte pinAudioD=2;
-byte pinLowLight=3;
-byte pinHightLight=4;
+#include <ArduinoSTL.h>
+#include <vector>
 
-bool ClapsOn=true;
+ClapsCounterSubj ClCounter(2);
 
-bool onLowLight=0;
-bool onHightLight=0;
-byte claps=0;
+//std::vector<std::unique_ptr<WorkerSwitchObs>> vec_Workers;
+std::vector<WorkerSwitchObs*> vec_Workers;
 
-//int voiseLevel=0; //voiseLevel=analogRead(A0);
-
-TimerSimple Timer;
+bool ClapsOn=true;//Вкл ли управление хлопками
 
 void setup() {
-  Serial.begin(9600);
-  
-  pinMode(pinAudioD,INPUT);
-  pinMode(pinLowLight,OUTPUT);
-  pinMode(pinHightLight,OUTPUT);
-  
-  digitalWrite(pinLowLight,onLowLight);
-  digitalWrite(pinHightLight,onHightLight);
+  //Serial.begin(9600);
+
+  vec_Workers.push_back(new WorkerSwitchObs( 3,2,ClCounter ));
+  vec_Workers.push_back(new WorkerSwitchObs( 4,3,ClCounter ));
 }
 
-void loop() {
-  if(ClapsOn != (analogRead(A1)>600?true:false)){ //ClapsOn - вкл ли управление хлопками. Нужно ли переключить?
+void loop() {  
+  if(ClapsOn != (analogRead(A1)>600?true:false)){ //Нужно ли переключить?
     ClapsOn=!ClapsOn;
-    if(ClapsOn){
-      digitalWrite(pinLowLight,onLowLight);
-      digitalWrite(pinHightLight,onHightLight);
-    }else{
-      digitalWrite(pinLowLight,HIGH);
-      digitalWrite(pinHightLight,HIGH);
+    for(auto &it : vec_Workers){
+      it->SetIsRegular(!ClapsOn);
     }
-  }
-  
+    if(!ClapsOn){
+      ClCounter.HardReset();
+    }
+  }  
   if(ClapsOn){
-    if(digitalRead(pinAudioD)){     Serial.println("Clap 1");
-      claps=1;
-      Timer.Start(200);
-      while(Timer.Check());    
-      Timer.Start(300);
-      while(Timer.Check()){    
-        if(digitalRead(pinAudioD)){ 
-          claps++;                  Serial.print("Claps ");Serial.println(claps);
-          Timer.Start(200);
-          while(Timer.Check());
-          Timer.Start(300);
-        }
-      }
-      if(claps>1 && claps<=3){      Serial.println("In if");
-        if(claps==2){
-          onLowLight=!onLowLight;
-          digitalWrite(pinLowLight,onLowLight);
-        }else if(claps==3){
-          onHightLight=!onHightLight;
-          digitalWrite(pinHightLight,onHightLight);
-        }
-        Timer.Start(500);
-        while(Timer.Check());      Serial.print(onLowLight);Serial.print(" ");Serial.println(onHightLight);   
-      }
-    }
+    ClCounter.Update();  
   }
 }

@@ -29,6 +29,7 @@ class ClapsCounterSubj : public ISubject, public ClapsCounter{
   protected:
     std::list<IObserver *> list_observer_;
   public:
+    ClapsCounterSubj(uint8_t new_pinAudioD);
     virtual ~ClapsCounterSubj(){}
     void Attach(IObserver *observer) override;
     void Detach(IObserver *observer) override;
@@ -39,7 +40,7 @@ class ClapsCounterSubj : public ISubject, public ClapsCounter{
 class WorkerSwitchObs : public IObserver, public WorkerSwitch{
   private:
     ClapsCounterSubj &ClapsCounterSubj_;
-    int TriggerNumber;//Наблюдатель будет оповещен, если код события соответствует этому коду срабатывания
+    int TriggerNumber=0;//Наблюдатель отреагирует, если код события соответствует этому коду срабатывания
   public:
     WorkerSwitchObs(uint8_t new_pinWork, int newTriggerNumber, ClapsCounterSubj &newClapsCounterSubj);
     virtual ~WorkerSwitchObs();
