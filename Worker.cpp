@@ -1,36 +1,36 @@
 #include "Worker.h"
 //------------------------
-WorkerSwitch::WorkerSwitch(uint8_t new_pinWork){
-  if(new_pinWork<=13){
-    this->pinWork=new_pinWork;
-    pinMode(this->pinWork,INPUT);
+WorkerSwitch::WorkerSwitch(uint8_t new_pin_work){
+  if(new_pin_work <= 13){
+    this->pin_work_=new_pin_work;
+    pinMode(this->pin_work_,INPUT);
   }else{
     //Serial.println("Worker pin set wrong");
   }  
 }
 //------------------------    
-void WorkerSwitch::Work(){//Переключает IsOn, если переключения доступны + применяет
-  if(!this->IsRegular){
-    this->IsOn=!this->IsOn;
+void WorkerSwitch::Work(){//Переключает is_on, если переключения доступны + применяет
+  if(!this->is_regular_){
+    this->is_on_=!this->is_on_;
   }
   this->Apply();
 }
 //------------------------
 void WorkerSwitch::Apply(){
-  digitalWrite(this->pinWork,!this->IsRegular?this->IsOn:this->RegularIsOn);  
+  digitalWrite(this->pin_work_, !this->is_regular_ ? this->is_on_ : this->regular_is_on_);  
 }
 //------------------------
-bool WorkerSwitch::GetIsOn(){
-  return !this->IsRegular?this->IsOn:this->RegularIsOn;
+bool WorkerSwitch::GetIsOn() const{
+  return !this->is_regular_ ? this->is_on_ : this->regular_is_on_;
 }
 //------------------------
-void WorkerSwitch::SetRegularIsOn(bool newRegularIsOn){
-  this->RegularIsOn=newRegularIsOn;
+void WorkerSwitch::SetRegularIsOn(bool new_regular_is_on){
+  this->regular_is_on_=new_regular_is_on;
   this->Apply();
 }
 //------------------------
-bool WorkerSwitch::SetIsRegular(bool newIsRegular){
-  this->IsRegular=newIsRegular;
+bool WorkerSwitch::SetIsRegular(bool new_is_regular){
+  this->is_regular_=new_is_regular;
   this->Apply();
 }
 //------------------------    

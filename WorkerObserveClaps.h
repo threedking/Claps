@@ -13,13 +13,13 @@
 //----------------
 class IObserver{    
   public:
-    virtual ~IObserver(){};
-    virtual void Update(const int &eventCode) = 0;
+    virtual ~IObserver()=default;
+    virtual void Update(const int &event_code) = 0;
 };
 
 class ISubject{
  public:
-  virtual ~ISubject(){};
+  virtual ~ISubject()=default;
   virtual void Attach(IObserver *observer) = 0;
   virtual void Detach(IObserver *observer) = 0;
   virtual void Notify() = 0;
@@ -29,8 +29,8 @@ class ClapsCounterSubj : public ISubject, public ClapsCounter{
   protected:
     std::list<IObserver *> list_observer_;
   public:
-    ClapsCounterSubj(uint8_t new_pinAudioD);
-    virtual ~ClapsCounterSubj(){}
+    ClapsCounterSubj(uint8_t new_pin_audio_d);
+    virtual ~ClapsCounterSubj()=default;
     void Attach(IObserver *observer) override;
     void Detach(IObserver *observer) override;
     void Notify() override;
@@ -39,10 +39,10 @@ class ClapsCounterSubj : public ISubject, public ClapsCounter{
 
 class WorkerSwitchObs : public IObserver, public WorkerSwitch{
   private:
-    ClapsCounterSubj &ClapsCounterSubj_;
-    int TriggerNumber=0;//Наблюдатель отреагирует, если код события соответствует этому коду срабатывания
+    ClapsCounterSubj &claps_counter_subj_;
+    int trigger_number_=0;//Наблюдатель отреагирует, если код события соответствует этому коду срабатывания
   public:
-    WorkerSwitchObs(uint8_t new_pinWork, int newTriggerNumber, ClapsCounterSubj &newClapsCounterSubj);
+    WorkerSwitchObs(uint8_t new_pin_work, int new_trigger_number, ClapsCounterSubj &new_claps_counter_Subj_);
     virtual ~WorkerSwitchObs();
     
     void Update(const int &eventCode) override;

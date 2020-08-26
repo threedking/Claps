@@ -5,30 +5,30 @@
 #include <Arduino.h>
 
 //----------------
-class iWorker{
+class IWorker{
   private:  
   public:
-    virtual ~iWorker(){};
+    virtual ~IWorker()=default;
     virtual void Work()=0;
 };
 //----------------    
-class WorkerSwitch: public iWorker{
+class WorkerSwitch: public IWorker{
   private:
-    bool IsOn=false;//Если переключения доступны, то это текущее состояние
-    bool RegularIsOn=true;//Если переключения НЕ доступны, то это текущее состояние(без хлопков выключается вручную)
-    bool IsRegular=false;//Недоступны ли переключения    
+    bool is_on_=false;//Если переключения доступны, то это текущее состояние
+    bool regular_is_on_=true;//Если переключения НЕ доступны, то это текущее состояние(без хлопков выключается вручную)
+    bool is_regular_=false;//Недоступны ли переключения    
     
-    uint8_t pinWork=255;//255 - неправильно или не задан
+    uint8_t pin_work_=255;//255 - неправильно или не задан
   public:
-    WorkerSwitch(uint8_t new_pinWork);
-    virtual ~WorkerSwitch(){};
+    WorkerSwitch(uint8_t new_pin_work);
+    virtual ~WorkerSwitch()=default;
     
     void Work() override;//Переключает IsOn, если переключения доступны + применяет
     void Apply();
     
-    bool GetIsOn();
-    void SetRegularIsOn(bool newRegularIsOn);
-    bool SetIsRegular(bool newIsRegular);
+    bool GetIsOn() const;
+    void SetRegularIsOn(bool new_regular_is_on);
+    bool SetIsRegular(bool new_is_regular);
 };
 //----------------
 #endif
