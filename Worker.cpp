@@ -29,7 +29,7 @@ void WorkerSwitch::SetRegularIsOn(bool new_regular_is_on){
   this->Apply();
 }
 //------------------------
-bool WorkerSwitch::SetIsRegular(bool new_is_regular){
+void WorkerSwitch::SetIsRegular(bool new_is_regular){
   this->is_regular_=new_is_regular;
   this->Apply();
 }

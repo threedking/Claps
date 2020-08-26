@@ -28,7 +28,7 @@ class WorkerSwitch: public IWorker{
     
     bool GetIsOn() const;
     void SetRegularIsOn(bool new_regular_is_on);
-    bool SetIsRegular(bool new_is_regular);
+    void SetIsRegular(bool new_is_regular);
 };
 //----------------
 #endif
